@@ -1,0 +1,20 @@
+{:source-paths ["src/main"]
+
+ :dependencies [[binaryage/devtools "0.9.10"]
+                [reagent "0.8.1"]]
+
+ :nrepl {:port 8777}  ;; set an nrepl port for connection to a REPL.
+
+ :http  {:port 3310}  ;; primary http port, also used by devtool websocket
+
+ :builds {:app {:target     :browser
+                :output-dir "public/js/compiled"
+                :asset-path "/js/compiled"
+
+                :modules  {:main {:entries [mark.emsimu.app]}}
+
+                :devtools {:before-load mark.emsimu.app/stop  ;; before live-reloading any code call this function
+                           :after-load  mark.emsimu.app/start ;; after live-reloading finishes call this function
+                           :http-root   "public"                      ;; serve the public directory over http at port 3000
+                           :http-port   3000
+                           :preloads    [devtools.preload]}}}}
