@@ -8,7 +8,7 @@ CORS(app) # local development cors
 
 THIS_FILE_DIR = os.path.dirname(os.path.realpath(__file__))
 PROJECT_DIR = os.path.dirname(THIS_FILE_DIR)
-RESOURCES_DIR = os.path.join(PROJECT_DIR, 'resources', 'public')
+RESOURCES_DIR = os.path.join(PROJECT_DIR, 'public')
 
 @app.route('/<path:resource>')
 def public_resource(resource):
@@ -22,7 +22,8 @@ def index():
 
 @app.route('/count')
 def newtext():
-    return jsonify({'count': random.randint(1, 10)})
+    # return random.randint(1, 10)
+    return jsonify({'count_num': random.randint(1, 10)})
 
 if __name__ == "__main__":
     app.run()
