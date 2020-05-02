@@ -1,7 +1,8 @@
 {:source-paths ["src/main"]
 
  :dependencies [[binaryage/devtools "0.9.10"]
-                [reagent "0.8.1"]]
+                [reagent "0.8.1"]
+                [cljs-ajax "0.8.0"]]
 
  :nrepl {:port 8777}  ;; set an nrepl port for connection to a REPL.
 
